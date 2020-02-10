@@ -4,9 +4,6 @@ LIBFT_NAME = libft.a
 #  color_output.c  left out
 SRCS =	main.c\
 		terminal_output.c\
-		./minilibx/texture_output.c\
-		./minilibx/draw_floor_and_ceiling.c\
-		sprites.c\
 		get_next_line.c\
 		initialize_global_struct.c\
 		get_screenshot.c\
@@ -32,13 +29,12 @@ RM		= rm -f
 # CFLAGS = -Wall -Wextra -Werror
 
 exec:	$(NAME)
-		gcc ${CFLAGS} -lmlx -framework OpenGL -framework AppKit ${SRCS} ${LIBFT_NAME}
+		gcc ${CFLAGS} ${SRCS} ${LIBFT_NAME}
 		./a.out "./maps/city/city.cub"
 		${RM} ${OBJS}
 
 
 $(NAME): $(OBJS)
-	@make -C ./minilibx/minilibx_opengl
 	@make -C ./libft
 	@cp libft/libft.a ./$(LIBFT_NAME)
 	@ar rc $(LIBFT_NAME) $(OBJS)
@@ -48,7 +44,6 @@ all:	${NAME}
 
 clean:
 		${RM} ${OBJS}
-		make clean -C ./minilibx/minilibx_opengl
 
 fclean:	clean
 		${RM} ${NAME}

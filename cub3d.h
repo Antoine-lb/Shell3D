@@ -21,9 +21,6 @@
 #include <stddef.h>
 #include <fcntl.h>
 
-#include "minilibx/keys.h"
-
-#include "minilibx/minilibx_opengl/mlx.h"
 #include "./libft/libft.h"
 
 #define EMPTY 0
@@ -121,16 +118,7 @@ void get_screenshot(t_g *g, void (*draw_line)(t_g *, int, int, int));
 int print_in_terminal(t_g *g);
 void draw_line_terminal(t_g *g, int x, int drawStart, int drawEnd);
 
-int print_in_color(t_g *g);
-void draw_line_in_color(t_g *g, int x, int drawStart, int drawEnd);
-
-int print_in_texture(t_g *g);
-void draw_line_in_texture(t_g *g, int x, int drawStart, int drawEnd);
-
-void sprite_casting(t_g *g);
-
 int open_and_parse_file(t_g *g, char *file);
-
 
 // parsing
 int is_line_valid(char *line);
@@ -145,8 +133,7 @@ int parse_line_texture(t_texture *texture, char *line);
 char *get_path(char *line, int start);
 int parse_line_sprite(t_sprites *sprite, char *line);
 int parse_line_floor_and_ceiling(t_texture *texture, char *line);
-int		create_rgb(int r, int g, int b);
-void draw_floor_and_ceiling(t_g *g);
+int create_rgb(int r, int g, int b);
 
 void initialize_global_struct(t_g *g);
 

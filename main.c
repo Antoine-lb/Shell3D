@@ -52,10 +52,5 @@ int main(int ac, char **av)
 	if (!(open_and_parse_file(&g, av[1])))
 		return (0);
 
-
-	print_in_texture(&g);
-
-	while (1);
-	// return (print_in_texture(&g));
-	return (0);
+	return (print_in_terminal(&g));
 }
