@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 int deal_error(char *err)
 {
@@ -50,7 +50,7 @@ int convert_chaned_list_map_to_2d_array(t_g *g, t_list *tmp_map)
     g->sprite.numSprites = sprites_num;
     g->sprite.sprites = (float **)malloc(sprites_num * (sizeof(float *)));
     // protect
-    g->sprite.spriteOrder = (int*)malloc(sprites_num * (sizeof(int)));
+    g->sprite.spriteOrder = (int *)malloc(sprites_num * (sizeof(int)));
     while (x < sprites_num)
     {
         g->sprite.sprites[x] = (float *)malloc(3 * (sizeof(float)));
@@ -74,9 +74,8 @@ int convert_chaned_list_map_to_2d_array(t_g *g, t_list *tmp_map)
     return (1);
 }
 
-void    free_all(t_g *g)
+void free_all(t_g *g)
 {
-
 }
 
 int open_and_parse_file(t_g *g, char *file)
@@ -111,7 +110,7 @@ int open_and_parse_file(t_g *g, char *file)
 
     if (!allocate_map(&g->map))
         return (0); // free everything
-    
+
     g->sprite.ZBuffer = (double *)malloc((g->screen.screenWidth) * sizeof(double));
     if (!g->sprite.ZBuffer)
         return (0); // free everything

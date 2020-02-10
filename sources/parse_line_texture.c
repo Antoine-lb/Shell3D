@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 int parse_line_texture(t_texture *texture, char *line)
 {
@@ -11,7 +11,7 @@ int parse_line_texture(t_texture *texture, char *line)
         fd = open(path, O_RDONLY);
         if (fd > 0)
             texture->textures[0] = path;
-        else 
+        else
             return (0);
     }
     else if (line[0] == 'S' && line[1] == 'O')
@@ -20,7 +20,7 @@ int parse_line_texture(t_texture *texture, char *line)
         fd = open(path, O_RDONLY);
         if (fd > 0)
             texture->textures[1] = path;
-        else 
+        else
             return (0);
     }
     else if (line[0] == 'E' && line[1] == 'A')
@@ -29,7 +29,7 @@ int parse_line_texture(t_texture *texture, char *line)
         fd = open(path, O_RDONLY);
         if (fd > 0)
             texture->textures[2] = path;
-        else 
+        else
             return (0);
     }
     else if (line[0] == 'W' && line[1] == 'E')
@@ -38,7 +38,7 @@ int parse_line_texture(t_texture *texture, char *line)
         fd = open(path, O_RDONLY);
         if (fd > 0)
             texture->textures[3] = path;
-        else 
+        else
             return (0);
     }
     return (1);

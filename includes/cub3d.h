@@ -21,7 +21,7 @@
 #include <stddef.h>
 #include <fcntl.h>
 
-#include "./libft/libft.h"
+#include "../libft/libft.h"
 
 #define EMPTY 0
 #define WALL 1

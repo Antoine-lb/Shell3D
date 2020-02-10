@@ -1,10 +1,10 @@
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 #define BUFFER_SIZE 1000
 
-int		new_line(char *str)
+int new_line(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i] && str[i] != '\n')
@@ -14,12 +14,11 @@ int		new_line(char *str)
 	return (0);
 }
 
-
-char	*remove_line(char *store)
+char *remove_line(char *store)
 {
-	int		i;
-	int		x;
-	char	*res;
+	int i;
+	int x;
+	char *res;
 
 	i = 0;
 	x = 0;
@@ -27,14 +26,14 @@ char	*remove_line(char *store)
 		i++;
 	if (!store[i])
 	{
-		if (!(res = (char*)malloc(1 * sizeof(char))))
+		if (!(res = (char *)malloc(1 * sizeof(char))))
 			return (NULL);
 		res[0] = '\0';
 		return (res);
 	}
 	while (store[x])
 		x++;
-	if (!(res = (char*)malloc((x - i) * sizeof(char))))
+	if (!(res = (char *)malloc((x - i) * sizeof(char))))
 		return (NULL);
 	x = 0;
 	i++;
@@ -44,9 +43,9 @@ char	*remove_line(char *store)
 	return (res);
 }
 
-int		line_size(char *store)
+int line_size(char *store)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (store[i] && store[i] != '\n')
@@ -58,10 +57,10 @@ int		line_size(char *store)
 	return (i);
 }
 
-int		get_next_line_first_step(int fd, char **store,
-			int *bytes_read, char *buf)
+int get_next_line_first_step(int fd, char **store,
+														 int *bytes_read, char *buf)
 {
-	char	*tmp;
+	char *tmp;
 
 	while (!new_line(*store) && (*bytes_read = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
@@ -76,9 +75,9 @@ int		get_next_line_first_step(int fd, char **store,
 	return (1);
 }
 
-int		get_next_line_end(char **store, int *bytes_read)
+int get_next_line_end(char **store, int *bytes_read)
 {
-	char		*tmp;
+	char *tmp;
 
 	tmp = remove_line(*store);
 	if (tmp == NULL)
@@ -93,12 +92,12 @@ int		get_next_line_end(char **store, int *bytes_read)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int get_next_line(int fd, char **line)
 {
-	static char	*store = NULL;
-	static int	bytes_read = 0;
-	char		buf[BUFFER_SIZE + 1];
-	int			i;
+	static char *store = NULL;
+	static int bytes_read = 0;
+	char buf[BUFFER_SIZE + 1];
+	int i;
 
 	if (store == NULL && bytes_read == 0)
 		store = ft_strjoin("", "");
@@ -106,7 +105,7 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	if (get_next_line_first_step(fd, &store, &bytes_read, buf) == -1)
 		return (-1);
-	if (!(line[0] = (char*)malloc((line_size(store) + 1) * sizeof(char))))
+	if (!(line[0] = (char *)malloc((line_size(store) + 1) * sizeof(char))))
 		return (-1);
 	i = 0;
 	while (store[i] && store[i] != '\n')

@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 int put_map_line_in_struct(t_g *g, char *content, int x, int *sprites_num)
 {

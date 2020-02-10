@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 int parse_line_sprite(t_sprites *sprite, char *line)
 {

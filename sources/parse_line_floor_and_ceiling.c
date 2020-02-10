@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 int parse_line_floor_and_ceiling(t_texture *texture, char *line)
 {

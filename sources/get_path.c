@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 char *get_path(char *line, int start)
 {
@@ -19,12 +19,12 @@ char *get_path(char *line, int start)
         return (NULL);
     path = (char *)malloc((end_of_path - beginning_of_path + 1) * sizeof(char));
     if (path == NULL)
-        return (NULL); 
+        return (NULL);
     x = beginning_of_path;
     y = 0;
     while (x <= end_of_path)
     {
-        path[y] =line[x];
+        path[y] = line[x];
         y++;
         x++;
     }

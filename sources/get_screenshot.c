@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 void get_screenshot(t_g *g, void (*draw_line)(t_g *, int, int, int))
 {
@@ -25,7 +25,7 @@ void get_screenshot(t_g *g, void (*draw_line)(t_g *, int, int, int))
 		int stepY;
 
 		int hit = 0; //was there a wall hit?
-		int side;	//was a NS or a EW wall hit?
+		int side;		 //was a NS or a EW wall hit?
 		//calculate step and initial sideDist
 		if (g->rayDirX < 0)
 		{

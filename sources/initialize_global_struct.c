@@ -1,17 +1,17 @@
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 void ft_bzero(void *b, size_t len)
 {
-	size_t count;
-	unsigned char *res;
+    size_t count;
+    unsigned char *res;
 
-	count = 0;
-	res = b;
-	while (count < len)
-	{
-		res[count] = 0;
-		count++;
-	}
+    count = 0;
+    res = b;
+    while (count < len)
+    {
+        res[count] = 0;
+        count++;
+    }
 }
 
 void initialize_global_struct(t_g *g)
@@ -38,6 +38,4 @@ void initialize_global_struct(t_g *g)
     g->player.posY = 0.0;
     g->player.dirX = 0.0;
     g->player.dirY = 0.0;
-    
-
 }

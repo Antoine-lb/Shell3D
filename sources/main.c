@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 void *ft_memcpy(void *dst, const void *src, size_t n)
 {

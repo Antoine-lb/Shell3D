@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 int allocate_map(t_map *map)
 {
@@ -12,6 +12,6 @@ int allocate_map(t_map *map)
         if (!map->board[x])
             return (0);
         x++;
-    }  
+    }
     return (1);
 }

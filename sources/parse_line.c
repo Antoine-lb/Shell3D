@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 int parse_line(t_g *g, t_list *tmp_map, char *line)
 {

@@ -1,56 +1,85 @@
-NAME = a.out
-LIBFT_NAME = libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ale-baux <ale-baux@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/01/30 11:56:06 by ale-baux          #+#    #+#              #
+#    Updated: 2020/02/04 13:44:05 by ale-baux         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-#  color_output.c  left out
-SRCS =	main.c\
+CC = gcc
+
+NAME = cub3D
+
+# FLAGS = -Wall -Wextra -Werror
+
+LIBFT = libft
+
+DIR_S = sources
+
+DIR_O = temporary
+
+HEADER = includes
+
+SOURCES = main.c\
 		terminal_output.c\
 		get_next_line.c\
 		initialize_global_struct.c\
 		get_screenshot.c\
-		./parsing/parsing.c\
-		./parsing/is_line_valid.c\
-		./parsing/remove_spaces.c\
-		./parsing/parse_line_resolution.c\
-		./parsing/allocate_map.c\
-		./parsing/parse_line.c\
-		./parsing/parse_line_map.c\
-		./parsing/put_map_line_in_struct.c\
-		./parsing/parse_line_texture.c\
-		./parsing/get_path.c\
-		./parsing/parse_line_sprite.c\
-		./parsing/parse_line_floor_and_ceiling.c\
-		./parsing/create_rgb.c\
+		parsing.c\
+		is_line_valid.c\
+		remove_spaces.c\
+		parse_line_resolution.c\
+		allocate_map.c\
+		parse_line.c\
+		parse_line_map.c\
+		put_map_line_in_struct.c\
+		parse_line_texture.c\
+		get_path.c\
+		parse_line_sprite.c\
+		parse_line_floor_and_ceiling.c\
+		create_rgb.c\
 
-OBJS = ${SRCS:.c=.o}
 
-CC		= gcc
-RM		= rm -f
+SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
-# CFLAGS = -Wall -Wextra -Werror
+OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
 
-exec:	$(NAME)
-		gcc ${CFLAGS} ${SRCS} ${LIBFT_NAME}
-		./a.out "./maps/city/city.cub"
-		${RM} ${OBJS}
-
+all: temporary $(NAME)
 
 $(NAME): $(OBJS)
-	@make -C ./libft
-	@cp libft/libft.a ./$(LIBFT_NAME)
-	@ar rc $(LIBFT_NAME) $(OBJS)
-	@ranlib $(LIBFT_NAME)
-	
-all:	${NAME}
+	@make -C $(LIBFT)
+	@$(CC) $(FLAGS) -L $(LIBFT) -lft -o $@ $^
+
+temporary:
+	@mkdir -p temporary
+
+$(DIR_O)/%.o: $(DIR_S)/%.c $(HEADER)/cub3d.h
+	@$(CC) $(FLAGS) -I $(HEADER) -c -o $@ $<
+
+bonus: all
+
+norme:
+	@echo
+	norminette ./$(LIBFT)
+	@echo
+	norminette ./$(HEADER)
+	@echo
+	norminette ./$(DIR_S)
 
 clean:
-		${RM} ${OBJS}
+	@rm -f $(OBJS)
+	@make clean -C $(LIBFT)
+	@rm -rf $(DIR_O)
 
-fclean:	clean
-		${RM} ${NAME}
+fclean: clean
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT)
 
-re:		fclean all
+re: fclean
+	@$(MAKE) all
 
-run:	all
-		
-norm:
-		norminette ${SRCS}
+.PHONY: temporary, norme, clean
