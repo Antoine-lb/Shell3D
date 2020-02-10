@@ -1,0 +1,4 @@
+clear
+gcc tests/tests_$1.c
+./a.out
+rm a.out
