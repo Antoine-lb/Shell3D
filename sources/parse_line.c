@@ -28,12 +28,6 @@ int parse_line(t_g *g, t_list *tmp_map, char *line)
         if (res == 0)
             return (deal_error("Textures not valid"));
     }
-    else if (line[0] == 'S' && line[1] == ' ')
-    {
-        res = parse_line_sprite(&g->sprite, line);
-        if (res == 0)
-            return (deal_error("Sprite not valid"));
-    }
     else if (line[0] == 'F' || line[0] == 'C')
     {
         res = parse_line_floor_and_ceiling(&g->texture, line);

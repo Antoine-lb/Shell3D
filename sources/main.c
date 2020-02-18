@@ -42,15 +42,38 @@ void print_map(t_map *map)
 
 int main(int ac, char **av)
 {
-	t_g g;
+	// t_g g;
 
-	if (!ac)
-		return (-1);
+	// if (!ac)
+	// 	return (-1);
 
-	initialize_global_struct(&g);
+	// initialize_global_struct(&g);
 
-	if (!(open_and_parse_file(&g, av[1])))
-		return (0);
+	// if (!(open_and_parse_file(&g, av[1])))
+	// 	return (0);
 
-	return (print_in_terminal(&g));
+	// return (print_in_terminal(&g));
+
+	char line[10];
+	char answer;
+	answer = 'w';
+	while (answer != 'q')
+	{
+		system("stty cbreak");
+		fgets(line, sizeof(line), stdin);
+		sscanf(line, "%c", &answer);
+		switch (answer)
+		{
+		case 'd':
+			printf("Move Left\n");
+			break;
+		case 'a':
+			printf("Move Right\n");
+			break;
+		default:
+			break;
+		}
+	}
+
+	return 0;
 }
