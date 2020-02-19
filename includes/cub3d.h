@@ -88,7 +88,7 @@ typedef struct s_texture
 
 typedef struct g_s
 {
-    int currentScreen[2000][2000]; // change to [screenWidth][screenHeight]
+    int currentScreen[400][400]; // change to [screenWidth][screenHeight]
     void *mlx_ptr;
     void *mlx_win;
     char key_presed[280];
