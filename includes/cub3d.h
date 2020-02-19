@@ -133,7 +133,6 @@ int parse_line_texture(t_texture *texture, char *line);
 char *get_path(char *line, int start);
 int parse_line_sprite(t_sprites *sprite, char *line);
 int parse_line_floor_and_ceiling(t_texture *texture, char *line);
-int create_rgb(int r, int g, int b);
 
 void initialize_global_struct(t_g *g);
 

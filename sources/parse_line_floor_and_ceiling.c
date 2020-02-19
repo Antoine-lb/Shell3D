@@ -20,8 +20,8 @@ int parse_line_floor_and_ceiling(t_texture *texture, char *line)
     }
 
     if (line[0] == 'F' && line[1] == ' ')
-        texture->floor_color = create_rgb(red, green, blue);
+        texture->floor_color = 1;
     else if (line[0] == 'C' && line[1] == ' ')
-        texture->ceiling_color = create_rgb(red, green, blue);
+        texture->ceiling_color = 2;
     return (1);
 }

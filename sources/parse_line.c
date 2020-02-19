@@ -25,8 +25,8 @@ int parse_line(t_g *g, t_list *tmp_map, char *line)
         (line[0] == 'W' && line[1] == 'E'))
     {
         res = parse_line_texture(&g->texture, line);
-        if (res == 0)
-            return (deal_error("Textures not valid"));
+        // if (res == 0)
+        //     return (deal_error("Textures not valid"));
     }
     else if (line[0] == 'F' || line[0] == 'C')
     {

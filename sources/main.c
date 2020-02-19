@@ -70,9 +70,9 @@ int start_terminal_loop(t_g *g)
 	double security;
 	double rotspeed;
 
-	move_speed = 0.05;
+	move_speed = 0.15;
 	security = 0.5;
-	rotspeed = 0.05;
+	rotspeed = move_speed;
 
 	print_in_terminal(g);
 

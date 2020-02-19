@@ -50,15 +50,11 @@ int print_in_terminal(t_g *g)
             }
             else if (g->currentScreen[xx][yy] == 1)
             {
-                printf("$");
+                printf("O");
             }
             else if (g->currentScreen[xx][yy] == 2)
             {
-                printf("s");
-            }
-            else if (g->currentScreen[xx][yy] == 3)
-            {
-                printf("@");
+                printf("+");
             }
             else
             {
