@@ -7,11 +7,11 @@ void draw_line_terminal(t_g *g, int x, int drawStart, int drawEnd)
 
         if (g->side == 1)
         {
-            g->currentScreen[x][drawStart] = 1;
+            g->screen.currentScreen[(x * g->screen.screenHeight) + drawStart] = '+';
         }
         else
         {
-            g->currentScreen[x][drawStart] = 2;
+            g->screen.currentScreen[(x * g->screen.screenHeight) + drawStart] = '0';
         }
         drawStart++;
     }
@@ -26,7 +26,7 @@ int print_in_terminal(t_g *g)
     {
         while (yy < g->screen.screenHeight)
         {
-            g->currentScreen[xx][yy] = 0;
+            g->screen.currentScreen[(xx * g->screen.screenHeight) + yy] = '.';
             yy++;
         }
         xx++;
@@ -44,22 +44,7 @@ int print_in_terminal(t_g *g)
     {
         while (xx < g->screen.screenWidth)
         {
-            if (g->currentScreen[xx][yy] == 0)
-            {
-                printf(".");
-            }
-            else if (g->currentScreen[xx][yy] == 1)
-            {
-                printf("O");
-            }
-            else if (g->currentScreen[xx][yy] == 2)
-            {
-                printf("+");
-            }
-            else
-            {
-                printf("%d", g->currentScreen[xx][yy]);
-            }
+            printf("%c", g->screen.currentScreen[(xx * g->screen.screenHeight) + yy]);
             xx++;
         }
         yy++;

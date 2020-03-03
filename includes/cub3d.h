@@ -52,6 +52,7 @@ typedef struct s_screen
     int screenHeight;
     double planeX;
     double planeY;
+    char *currentScreen;
 } t_screen;
 
 typedef struct s_player
@@ -77,7 +78,6 @@ typedef struct s_texture
 
 typedef struct g_s
 {
-    int currentScreen[400][400]; // change to [screenWidth][screenHeight]
     void *mlx_ptr;
     void *mlx_win;
     char key_presed[280];
