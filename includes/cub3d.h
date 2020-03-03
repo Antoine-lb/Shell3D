@@ -54,17 +54,6 @@ typedef struct s_screen
     double planeY;
 } t_screen;
 
-typedef struct s_sprites
-{
-    int numSprites;
-    float **sprites;
-    int *spriteOrder;
-    double *ZBuffer; // chang to screen width
-
-    t_img sprite_texture;
-    char *img_path;
-} t_sprites;
-
 typedef struct s_player
 {
     double posX;
@@ -97,7 +86,6 @@ typedef struct g_s
 
     t_map map;
     t_screen screen;
-    t_sprites sprite;
     t_player player;
     t_texture texture;
 
@@ -128,10 +116,9 @@ int deal_error(char *err);
 int allocate_map(t_map *map);
 int parse_line_map(t_map *map, t_list *tmp_map, char *line);
 int parse_line(t_g *g, t_list *tmp_map, char *line);
-int put_map_line_in_struct(t_g *g, char *content, int x, int *sprites_num);
+int put_map_line_in_struct(t_g *g, char *content, int x);
 int parse_line_texture(t_texture *texture, char *line);
 char *get_path(char *line, int start);
-int parse_line_sprite(t_sprites *sprite, char *line);
 int parse_line_floor_and_ceiling(t_texture *texture, char *line);
 
 void initialize_global_struct(t_g *g);

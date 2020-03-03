@@ -67,5 +67,11 @@ int print_in_terminal(t_g *g)
         printf("\n");
     }
 
+    printf("|-----------------------------------------|\n");
+    printf("| A,W,S,D or arrows to move               |\n");
+    printf("| U & I to increase/decrese screen width  |\n");
+    printf("| J & K to increase/decrese screen height |\n");
+    printf("| ESC or CTRL+C to quit                   |\n");
+    printf("|-----------------------------------------|\n");
     return (0);
 }

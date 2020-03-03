@@ -1,6 +1,6 @@
 #include "../includes/cub3d.h"
 
-int put_map_line_in_struct(t_g *g, char *content, int x, int *sprites_num)
+int put_map_line_in_struct(t_g *g, char *content, int x)
 {
     int y = 0;
 
@@ -13,7 +13,6 @@ int put_map_line_in_struct(t_g *g, char *content, int x, int *sprites_num)
             else if (content[y] == '2')
             {
                 g->map.board[x][y] = 0;
-                *sprites_num = *sprites_num + 1;
             }
             else if (content[y] == 'N' || content[y] == 'S' || content[y] == 'E' || content[y] == 'W')
             {

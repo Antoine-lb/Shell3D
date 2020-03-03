@@ -39,7 +39,6 @@ SOURCES = main.c\
 		put_map_line_in_struct.c\
 		parse_line_texture.c\
 		get_path.c\
-		parse_line_sprite.c\
 		parse_line_floor_and_ceiling.c\
 
 

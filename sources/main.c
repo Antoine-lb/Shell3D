@@ -80,6 +80,9 @@ int start_terminal_loop(t_g *g)
 	system("stty cbreak");
 	while (read(0, &c, 1) > 0)
 	{
+		// deal_key_up(g, move_speed, security);
+		// print_in_terminal(g);
+
 		switch (c)
 		{
 		case 'a':
@@ -96,6 +99,17 @@ int start_terminal_loop(t_g *g)
 			break;
 		case 's':
 			deal_key_down(g, move_speed, security);
+			print_in_terminal(g);
+			break;
+		case 'u':
+			// deal_key_down(g, move_speed, security);
+			printf("increase screen");
+			print_in_terminal(g);
+			break;
+		case 'i':
+			// deal_key_down(g, move_speed, security);
+			printf("decrease screen");
+
 			print_in_terminal(g);
 			break;
 		default:

@@ -86,7 +86,6 @@ void get_screenshot(t_g *g, void (*draw_line)(t_g *, int, int, int))
 		if (drawEnd >= g->screen.screenHeight)
 			drawEnd = g->screen.screenHeight - 1;
 
-		g->sprite.ZBuffer[x] = g->perpWallDist;
 		draw_line(g, x, drawStart, drawEnd);
 	}
 }
