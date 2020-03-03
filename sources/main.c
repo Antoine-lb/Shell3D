@@ -64,6 +64,14 @@ void deal_key_down(t_g *g, double move_speed, double security)
 		g->player.posY -= g->player.dirY * move_speed;
 }
 
+void change_screen_ratio(t_g *g, int width, int height)
+{
+	g->screen.screenWidth = width;
+	g->screen.screenHeight = height;
+	free(g->screen.currentScreen);
+	g->screen.currentScreen = (char *)malloc(sizeof(char) * (width * height));
+}
+
 int start_terminal_loop(t_g *g)
 {
 	double move_speed;
@@ -102,14 +110,19 @@ int start_terminal_loop(t_g *g)
 			print_in_terminal(g);
 			break;
 		case 'u':
-			// deal_key_down(g, move_speed, security);
-			printf("increase screen");
+			change_screen_ratio(g, g->screen.screenWidth + 10, g->screen.screenHeight);
 			print_in_terminal(g);
 			break;
 		case 'i':
-			// deal_key_down(g, move_speed, security);
-			printf("decrease screen");
-
+			change_screen_ratio(g, g->screen.screenWidth - 10, g->screen.screenHeight);
+			print_in_terminal(g);
+			break;
+		case 'j':
+			change_screen_ratio(g, g->screen.screenWidth, g->screen.screenHeight + 10);
+			print_in_terminal(g);
+			break;
+		case 'k':
+			change_screen_ratio(g, g->screen.screenWidth, g->screen.screenHeight - 10);
 			print_in_terminal(g);
 			break;
 		default:
