@@ -88,4 +88,12 @@ void get_screenshot(t_g *g, void (*draw_line)(t_g *, int, int, int))
 
 		draw_line(g, x, drawStart, drawEnd);
 	}
+
+	int i;
+	i = 1;
+	while (i < g->screen.screenHeight)
+	{
+		g->screen.currentScreen[(g->screen.screenWidth * i)] = '\n';
+		i++;
+	}
 }

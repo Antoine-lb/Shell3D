@@ -26,6 +26,6 @@ int parse_line_resolution(t_screen *screen, char *line)
     if (screen->screenWidth < 1 || screen->screenHeight < 1)
         return (deal_error("Invalid Screen Size"));
 
-    screen->currentScreen = (char *)malloc(sizeof(char) * (screen->screenWidth * screen->screenHeight));
+    screen->currentScreen = (char *)malloc(sizeof(char) * ((screen->screenWidth + 1) * screen->screenHeight));
     return (1);
 }

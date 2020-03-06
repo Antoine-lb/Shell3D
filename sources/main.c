@@ -137,8 +137,11 @@ int main(int ac, char **av)
 {
 	t_g g;
 
-	if (!ac)
+	if (ac != 2)
+	{
+		printf("wrong num of arguments\n");
 		return (-1);
+	}
 
 	initialize_global_struct(&g);
 

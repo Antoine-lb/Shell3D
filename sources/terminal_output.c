@@ -2,18 +2,35 @@
 
 void draw_line_terminal(t_g *g, int x, int drawStart, int drawEnd)
 {
-    while (drawStart <= drawEnd)
-    {
+    int i;
 
-        if (g->side == 1)
+    i = 0;
+
+    while (i < g->screen.screenHeight)
+    {
+        if (i > drawStart && i < drawEnd)
         {
-            g->screen.currentScreen[(x * g->screen.screenHeight) + drawStart] = '+';
+            if (g->side == 1)
+            {
+                g->screen.currentScreen[(i * g->screen.screenWidth) + x] = '+';
+            }
+            else
+            {
+                g->screen.currentScreen[(i * g->screen.screenWidth) + x] = '0';
+            }
         }
         else
         {
-            g->screen.currentScreen[(x * g->screen.screenHeight) + drawStart] = '0';
+            if (i > (g->screen.screenHeight / 2))
+            {
+                g->screen.currentScreen[(i * g->screen.screenWidth) + x] = '-';
+            }
+            else
+            {
+                g->screen.currentScreen[(i * g->screen.screenWidth) + x] = '.';
+            }
         }
-        drawStart++;
+        i++;
     }
 }
 
@@ -22,35 +39,11 @@ int print_in_terminal(t_g *g)
     int xx = 0;
     int yy = 0;
 
-    while (xx < g->screen.screenWidth)
-    {
-        while (yy < g->screen.screenHeight)
-        {
-            g->screen.currentScreen[(xx * g->screen.screenHeight) + yy] = '.';
-            yy++;
-        }
-        xx++;
-        yy = 0;
-    }
-
     write(1, "\033[30A", 5);
     write(1, "\033[140D", 6);
 
     get_screenshot(g, &draw_line_terminal);
-
-    xx = 0;
-    yy = 0;
-    while (yy < g->screen.screenHeight)
-    {
-        while (xx < g->screen.screenWidth)
-        {
-            printf("%c", g->screen.currentScreen[(xx * g->screen.screenHeight) + yy]);
-            xx++;
-        }
-        yy++;
-        xx = 0;
-        printf("\n");
-    }
+    write(1, g->screen.currentScreen, g->screen.screenHeight * g->screen.screenWidth);
 
     printf("|-----------------------------------------|\n");
     printf("| A,W,S,D or arrows to move               |\n");
