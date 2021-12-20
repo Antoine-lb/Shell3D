@@ -7,6 +7,9 @@ Highly inspired of Lode Vandevenne [blog post](https://lodev.org/cgtutor/raycast
 ![Sample of a block being rendered](./img/block-sample.jpg)
 > Sample of a block being rendered
 
+![Sample of the game being played](./img/game-sample.gif)
+> Sample of a block being rendered
+
 # How to run it
 
 1. clone repo
