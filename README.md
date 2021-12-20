@@ -8,7 +8,7 @@ Highly inspired of Lode Vandevenne [blog post](https://lodev.org/cgtutor/raycast
 > Sample of a block being rendered
 
 ![Sample of the game being played](./img/game-sample.gif)
-> Sample of a block being rendered
+> Sample of the player moving around
 
 # How to run it
 
