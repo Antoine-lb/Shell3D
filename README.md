@@ -4,6 +4,9 @@ Small implementation of a [Ray Casting](https://en.wikipedia.org/wiki/Ray_castin
 
 Highly inspired of Lode Vandevenne [blog post](https://lodev.org/cgtutor/raycasting.html) on Ray Casting.
 
+![Sample of a block being rendered](./img/block-sample.jpg)
+> Sample of a block being rendered
+
 # How to run it
 
 1. clone repo
