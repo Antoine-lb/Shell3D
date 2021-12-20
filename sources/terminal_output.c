@@ -45,7 +45,7 @@ int print_in_terminal(t_g *g)
     get_screenshot(g, &draw_line_terminal);
     write(1, g->screen.currentScreen, g->screen.screenHeight * g->screen.screenWidth);
 
-    printf("|-----------------------------------------|\n");
+    printf("\n|-----------------------------------------|\n");
     printf("| A,W,S,D or arrows to move               |\n");
     printf("| U & I to increase/decrese screen width  |\n");
     printf("| J & K to increase/decrese screen height |\n");

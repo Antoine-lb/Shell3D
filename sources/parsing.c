@@ -44,13 +44,17 @@ int open_and_parse_file(t_g *g, char *file)
     parse_result = 1;
 
     fd = open(file, O_RDONLY);
+    printf("toto %s\n", "asdf");
+
     while (parse_result && ((ret = get_next_line(fd, &line)) > 0))
     {
+        printf("toto %s\n", line);
         parse_result = parse_line(g, &tmp_map, line);
         free(line);
     }
     if (parse_result)
     {
+        printf("%s\n", line);
         parse_result = parse_line(g, &tmp_map, line);
         free(line);
     }

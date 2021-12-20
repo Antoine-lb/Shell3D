@@ -137,16 +137,19 @@ int main(int ac, char **av)
 {
 	t_g g;
 
-	if (ac != 2)
-	{
-		printf("wrong num of arguments\n");
-		return (-1);
-	}
 
 	initialize_global_struct(&g);
 
-	if (!(open_and_parse_file(&g, av[1])))
-		return (0);
+	if (ac != 2)
+	{
+		if (!(open_and_parse_file(&g, "./maps/city.cub")))
+			return (0);
+	}
+	else {
+		if (!(open_and_parse_file(&g, av[1])))
+			return (0);
+
+	}
 
 	return (start_terminal_loop(&g));
 }

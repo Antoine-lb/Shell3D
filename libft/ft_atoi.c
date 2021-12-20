@@ -42,7 +42,7 @@ int			ft_atoi(const char *str)
 	total = 0;
 	negative_flag = 0;
 	if (!str)
-		return ((int)NULL);
+		return (0);
 	while (str[i] && is_white_space(str[i]))
 		i++;
 	deal_with_negative(str, &i, &negative_flag);
